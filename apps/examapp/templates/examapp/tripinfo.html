@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Trip</title>
+</head>
+<body>
+    <h1 style="display: inline-block;">Hello {{curuser.first}}! Read about this Trip!</h1>
+    <a style="display: inline-block;" href="/dashboard">dashboard</a>
+    <a style="display: inline-block;" href="/destroy">Logout</a>
+
+    <h3>{{trip.destination}}</h3><br>
+    <p>Start Date: {{trip.start}}</p>
+    <p>end Date: {{trip.end}}</p>
+    <p>Created on: {{trip.created_at}}</p>
+    <p>Last upDated: {{trip.updated_at}}</p>
+    <p>Plan: {{trip.plan}}</p>
+    <p>Created by: {{curuser.first}}</p>
+</body>
+</html>

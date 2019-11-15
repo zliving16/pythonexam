@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New trip</title>
+</head>
+<body>
+    <h1 style="display: inline-block;">Hello {{curuser.first}}! Lets Edit your trip! </h1>
+    <a style="display: inline-block;" href="/destroy">Logout</a>
+    {% if messages %}
+    <ul>    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+<form action="/edit/{{trip.id}}" method="POST">
+    {%csrf_token%}
+
+    <p>Destination <input type="text" name='destination'></p>
+    <p>Start Date <input type="date" name='start'></p>
+    <p>End Date <input type="date" name='end'></p>
+    <p>Plan:</p>
+    <textarea name="plan"></textarea><br>
+    <button>submit</button>
+
+</form>
+<form action="/dashboard" method="POST">
+    {%csrf_token%}
+
+    <button>Cancel</button>
+</form><br>
+
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trip Buddy Dashboard</title>
+</head>
+<body>
+    <h1 style="display: inline-block;">Hello {{curuser.first}}</h1>
+    <a style='display: inline-block;' href="/destroy">Logout</a>
+    <form style="display: inline-block;" method="POST" action="/trips/new">
+        {%csrf_token%}
+        <button style='display: inline-block;'>create trip</button>
+    </form>
+    <table>
+            <tr>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End date</th>
+                <th>plan</th>
+                <th>Actions</th>
+            </tr>
+            {% for trip in usertrips %}
+                <tr>
+                    <td><a href="/trips/{{trip.id}}">{{trip.destination}}</a></td>
+                    <td>{{trip.start}}</td>
+                    <td>{{trip.end}}</td>
+                    <td>{{trip.plan}}</td>
+                    <td><a href="/delete/{{trip.id}}">Remove</a> | <a href="/trips/edit/{{trip.id}}">Edit</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+    
+</body>
+</html>
